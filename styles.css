@@ -4,6 +4,12 @@
     box-sizing: border-box;
 }
 
+html {
+    overflow-x: hidden;
+    width: 100%;
+    max-width: 100%;
+}
+
 :root {
     --primary-color: #ffffff;
     --secondary-color: #f0f0f0;
@@ -26,13 +32,18 @@ body {
     background: var(--dark-bg);
     color: var(--text-dark);
     overflow-x: hidden;
+    width: 100%;
+    max-width: 100%;
     line-height: 1.6;
+    position: relative;
 }
 
 .container {
     max-width: 1200px;
     margin: 0 auto;
     padding: 0 20px;
+    width: 100%;
+    box-sizing: border-box;
 }
 
 /* Navigation */
@@ -40,12 +51,16 @@ body {
     position: fixed;
     top: 0;
     width: 100%;
+    max-width: 100%;
     background: rgba(0, 0, 0, 0.95);
     backdrop-filter: blur(10px);
     box-shadow: 0 2px 20px rgba(255, 255, 255, 0.1);
     border-bottom: 1px solid rgba(255, 255, 255, 0.1);
     z-index: 1000;
     transition: all 0.3s ease;
+    left: 0;
+    right: 0;
+    box-sizing: border-box;
 }
 
 .nav-container {
@@ -55,6 +70,8 @@ body {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    width: 100%;
+    box-sizing: border-box;
 }
 
 .logo {
@@ -173,6 +190,9 @@ body {
     padding: 100px 20px 50px;
     background: linear-gradient(135deg, #000000 0%, #1a1a1a 50%, #000000 100%);
     overflow: hidden;
+    width: 100%;
+    max-width: 100%;
+    box-sizing: border-box;
 }
 
 .hero::before {
@@ -201,6 +221,8 @@ body {
     align-items: center;
     position: relative;
     z-index: 1;
+    box-sizing: border-box;
+    padding: 0 20px;
 }
 
 .hero-text {
@@ -393,6 +415,10 @@ body {
 .products-section {
     padding: 100px 0;
     background: var(--dark-bg);
+    width: 100%;
+    max-width: 100%;
+    overflow-x: hidden;
+    box-sizing: border-box;
 }
 
 .section-title {
@@ -560,6 +586,10 @@ body {
     padding: 100px 0;
     background: var(--dark-bg-2);
     color: white;
+    width: 100%;
+    max-width: 100%;
+    overflow-x: hidden;
+    box-sizing: border-box;
 }
 
 .about-content {
@@ -614,6 +644,10 @@ body {
 .contact-section {
     padding: 100px 0;
     background: var(--dark-bg);
+    width: 100%;
+    max-width: 100%;
+    overflow-x: hidden;
+    box-sizing: border-box;
 }
 
 .contact-content {
@@ -750,6 +784,10 @@ body {
     background: var(--dark-bg);
     color: white;
     padding: 50px 0 20px;
+    width: 100%;
+    max-width: 100%;
+    overflow-x: hidden;
+    box-sizing: border-box;
 }
 
 .footer-content {
@@ -798,6 +836,13 @@ body {
 
 /* Responsive Design */
 @media (max-width: 768px) {
+    html, body {
+        overflow-x: hidden;
+        width: 100%;
+        max-width: 100%;
+        position: relative;
+    }
+
     .nav-menu {
         position: fixed;
         top: 70px;
@@ -805,10 +850,12 @@ body {
         flex-direction: column;
         background: var(--dark-bg);
         width: 100%;
+        max-width: 100%;
         padding: 2rem;
         box-shadow: 0 5px 20px rgba(255, 255, 255, 0.1);
         border-top: 1px solid rgba(255, 255, 255, 0.1);
         transition: left 0.3s ease;
+        box-sizing: border-box;
     }
 
     .nav-menu.active {
@@ -819,36 +866,144 @@ body {
         display: flex;
     }
 
+    .nav-container {
+        padding: 1rem 15px;
+    }
+
+    .hero {
+        padding: 100px 15px 50px;
+        overflow-x: hidden;
+    }
+
     .hero-content {
         grid-template-columns: 1fr;
         text-align: center;
+        gap: 2rem;
+        padding: 0 15px;
     }
 
     .hero-title {
-        font-size: 2.5rem;
+        font-size: 2rem;
+    }
+
+    .title-line {
+        font-size: 1.2rem;
+    }
+
+    .hero-subtitle {
+        font-size: 1.2rem;
+    }
+
+    .hero-description {
+        font-size: 1rem;
     }
 
     .hero-visual {
-        height: 300px;
+        height: 250px;
     }
 
     .floating-card {
-        width: 100px;
-        height: 130px;
-        font-size: 2.5rem;
+        width: 80px;
+        height: 110px;
+        font-size: 2rem;
     }
 
     .section-title {
-        font-size: 2rem;
+        font-size: 1.8rem;
+        padding: 0 15px;
+    }
+
+    .container {
+        padding: 0 15px;
     }
 
     .contact-content {
         grid-template-columns: 1fr;
+        gap: 2rem;
     }
 
-
     .products-grid {
-        grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+        padding: 0;
+    }
+
+    .filter-buttons {
+        gap: 0.5rem;
+        padding: 0 15px;
+        flex-wrap: wrap;
+    }
+
+    .filter-btn {
+        padding: 0.6rem 1.5rem;
+        font-size: 0.9rem;
+    }
+
+    .product-card {
+        max-width: 100%;
+        width: 100%;
+    }
+
+    .footer-content {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+        text-align: center;
+    }
+
+    .features {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+    }
+
+    .social-contact {
+        flex-direction: column;
+        gap: 0.75rem;
+    }
+
+    .social-btn {
+        width: 100%;
+        text-align: center;
+    }
+}
+
+@media (max-width: 480px) {
+    .hero-title {
+        font-size: 1.75rem;
+    }
+
+    .section-title {
+        font-size: 1.5rem;
+    }
+
+    .cta-button {
+        padding: 0.875rem 2rem;
+        font-size: 1rem;
+    }
+
+    .logo-img {
+        height: 40px;
+    }
+
+    .nav-container {
+        padding: 0.75rem 10px;
+    }
+
+    .hero {
+        padding: 80px 10px 40px;
+    }
+
+    .hero-content {
+        padding: 0 10px;
+    }
+
+    .container {
+        padding: 0 10px;
+    }
+
+    .products-section,
+    .about-section,
+    .contact-section {
+        padding: 60px 0;
     }
 }
 
